@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -28,7 +29,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
@@ -36,7 +41,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import com.example.athione.ui.theme.AthiOneTheme
+import com.zedalpha.shadowgadgets.compose.clippedShadow
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
@@ -57,22 +64,26 @@ fun LoginPage(modifier: Modifier = Modifier)
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
-    Column(
+    Box(
             modifier = modifier
                 .fillMaxHeight()
-                .background(MaterialTheme.colorScheme.primaryContainer),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+                //.background(Color(0xFF459ADD)),
+                .background(brush = Brush.verticalGradient(listOf(Color(0xFF4E97D1), Color(0xFF7BADD1)))),
+            contentAlignment = Alignment.Center
         ) {
             Image(
                 painter = painterResource(id = R.drawable.aether_logo),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(120.dp)
+                    .fillMaxSize(),
+                alpha = 0.3f
             )
             Surface(
                 modifier = Modifier
-                    .clip(RoundedCornerShape(16.dp))
+                    .clippedShadow(elevation = 16.dp, shape = RoundedCornerShape(16.dp)),
+                shape = RoundedCornerShape(16.dp),
+                color = Color(0x99FFFFFF),
+                //shadowElevation = 16.dp
             ) {
                 Column(
                     // modifier = modifier,
