@@ -68,7 +68,11 @@ fun LoginPage(modifier: Modifier = Modifier)
             modifier = modifier
                 .fillMaxHeight()
                 //.background(Color(0xFF459ADD)),
-                .background(brush = Brush.verticalGradient(listOf(Color(0xFF4E97D1), Color(0xFF7BADD1)))),
+                .background(
+                    brush = Brush.verticalGradient(
+                        listOf(Color(0xFF4E97D1), Color(0xFF7BADD1))
+                    )
+                ),
             contentAlignment = Alignment.Center
         ) {
             Image(
@@ -133,6 +137,79 @@ fun LoginPage(modifier: Modifier = Modifier)
                 }
             }
         }
+}
+
+@Composable
+fun MaterialLoginPage(modifier: Modifier = Modifier)
+{
+    var login by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+
+    Column(
+        modifier = modifier
+            .fillMaxHeight()
+            .background(MaterialTheme.colorScheme.primaryContainer),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.aether_logo),
+            contentDescription = null,
+            modifier = Modifier
+                .size(120.dp)
+        )
+        Surface(
+            modifier = Modifier
+                .clip(RoundedCornerShape(16.dp))
+        ) {
+            Column(
+                // modifier = modifier,
+                modifier = Modifier
+                    .padding(vertical = 24.dp, horizontal = 16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(id = R.string.title_sign_in),
+                    style = MaterialTheme.typography.headlineMedium
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+
+                OutlinedTextField(
+                    value = login,
+                    label = { Text(stringResource(id = R.string.label_login)) },
+                    onValueChange = {login = it},
+                    singleLine = true
+                )
+                Spacer(modifier = Modifier.height(18.dp))
+                OutlinedTextField(
+                    // TODO: show password checkbox
+                    // TODO: figure out keyboard nuances
+                    value = password,
+                    label = { Text(stringResource(id = R.string.label_password)) },
+                    onValueChange = {password = it},
+                    singleLine = true,
+                    visualTransformation = PasswordVisualTransformation(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+                )
+                Spacer(modifier = Modifier.height(18.dp))
+
+                Button(onClick = {}) {
+                    Text(stringResource(id = R.string.button_sign_in_account))
+                }
+                Spacer(modifier = Modifier.height(36.dp))
+
+                Text(
+                    text = stringResource(id = R.string.label_no_account),
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontStyle = FontStyle.Italic
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                FilledTonalButton(onClick = {}) {
+                    Text(stringResource(id = R.string.button_register))
+                }
+            }
+        }
+    }
 }
 
 @Composable

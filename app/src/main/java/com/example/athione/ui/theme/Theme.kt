@@ -36,7 +36,7 @@ data class AeroColors(
 
 val AeroLightColorScheme = AeroColors(
 //    aeroSurface = Color(0x20F5F5F5),
-    aeroSurface = Color(0x20000000),
+    aeroSurface = Color(0x40000000),
     onAeroSurface = Color(0xFFFCFCFC),
     aeroSurfaceVariant = Color(0x20EBEBEB),
     onAeroSurfaceVariant = Color(0xFFE9E9E9),
