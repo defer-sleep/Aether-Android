@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="label_login">Логин</string>
+    <string name="label_password">Пароль</string>
+    <string name="title_sign_in">Войти</string>
+    <string name="label_no_account">Нет аккаунта?</string>
+    <string name="button_register">Зарегистрироваться</string>
+    <string name="button_sign_in_account">Войти</string>
+</resources>
