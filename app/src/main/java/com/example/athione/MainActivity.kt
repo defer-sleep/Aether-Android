@@ -78,11 +78,11 @@ fun LoginPage(modifier: Modifier = Modifier)
                     .fillMaxSize(),
                 alpha = 0.3f
             )
-            Surface(
+            AeroSurface(
                 modifier = Modifier
                     .clippedShadow(elevation = 16.dp, shape = RoundedCornerShape(16.dp)),
                 shape = RoundedCornerShape(16.dp),
-                color = Color(0x99FFFFFF),
+                // color = Color(0x99FFFFFF),
                 //shadowElevation = 16.dp
             ) {
                 Column(
