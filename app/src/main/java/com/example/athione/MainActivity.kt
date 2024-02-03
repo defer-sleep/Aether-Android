@@ -72,7 +72,7 @@ fun LoginPage(modifier: Modifier = Modifier)
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.aether_logo),
+                painter = painterResource(id = R.drawable.logo_3_blur_16_b),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxSize(),
@@ -97,14 +97,14 @@ fun LoginPage(modifier: Modifier = Modifier)
                     )
                     Spacer(modifier = Modifier.height(24.dp))
 
-                    OutlinedTextField(
+                    AeroTextField(
                         value = login,
                         label = { Text(stringResource(id = R.string.label_login)) },
                         onValueChange = {login = it},
                         singleLine = true
                     )
                     Spacer(modifier = Modifier.height(18.dp))
-                    OutlinedTextField(
+                    AeroTextField(
                         // TODO: show password checkbox
                         // TODO: figure out keyboard nuances
                         value = password,

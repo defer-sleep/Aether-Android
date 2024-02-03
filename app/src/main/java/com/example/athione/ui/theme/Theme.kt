@@ -25,48 +25,37 @@ import androidx.core.view.WindowCompat
 
 // --------------------------
 
-@Stable
-data class ExtendedColorScheme(
-    val aeroSurface: Color,
-    val onAeroSurface: Color,
+@Immutable
+data class AeroColors(
+    val aeroSurface: Color = Color.Unspecified,
+    val onAeroSurface: Color = Color.Unspecified,
+    val aeroSurfaceVariant: Color = Color.Unspecified,
+    val onAeroSurfaceVariant: Color = Color.Unspecified,
+    val aeroOutline: Color = Color.Unspecified,
 )
 
+val AeroLightColorScheme = AeroColors(
+//    aeroSurface = Color(0x20F5F5F5),
+    aeroSurface = Color(0x20000000),
+    onAeroSurface = Color(0xFFFCFCFC),
+    aeroSurfaceVariant = Color(0x20EBEBEB),
+    onAeroSurfaceVariant = Color(0xFFE9E9E9),
+    aeroOutline = Color(0xFFFCFCFC),
+)
 
-val LocalExtendedColorScheme = staticCompositionLocalOf {
-    ExtendedColorScheme(
-        aeroSurface = Color(0xFFAA5555),
-        onAeroSurface = Color.Unspecified,
-    )
-}
+val LocalAeroColors = staticCompositionLocalOf { AeroColors() }
 
-fun ExtendedColorScheme.contentColorFor(backgroundColor: Color): Color =
+val MaterialTheme.aeroColors : AeroColors
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalAeroColors.current
+
+
+fun AeroColors.contentColorFor(backgroundColor: Color): Color =
     when (backgroundColor) {
         aeroSurface -> onAeroSurface
         else -> Color.Unspecified
     }
-
-@Composable
-fun ExtendedTheme(
-    content: @Composable () -> Unit
-) {
-    val extendedColorScheme = ExtendedColorScheme(
-        aeroSurface = Color(0xFFEEEEEE),
-        onAeroSurface = Color(0xFFFAFAFA)
-    )
-    CompositionLocalProvider(LocalExtendedColorScheme provides extendedColorScheme) {
-        MaterialTheme(
-            content = content
-        )
-    }
-}
-
-object ExtendedTheme {
-    val colorScheme: ExtendedColorScheme
-        @Composable
-        @ReadOnlyComposable
-        get() = LocalExtendedColorScheme.current
-}
-
 
 // --------------------------
 
@@ -114,6 +103,8 @@ private val LightColorScheme = lightColorScheme(
 
     surface = aether_light_surface,
     onSurface = aether_light_onSurface,
+    surfaceVariant = aether_light_surfaceVariant,
+    onSurfaceVariant = aether_light_onSurfaceVariant,
 
     inversePrimary = aether_light_inversePrimary,
     inverseSurface = aether_light_inverseSurface,
@@ -144,6 +135,11 @@ fun AthiOneTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+
+    // Aero ------
+    val aeroColors = AeroLightColorScheme
+    // -----------
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
@@ -153,9 +149,13 @@ fun AthiOneTheme(
         }
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(
+        LocalAeroColors provides aeroColors
+    ) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content
+        )
+    }
 }

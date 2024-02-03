@@ -67,4 +67,5 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation("com.github.zed-alpha.shadow-gadgets:compose:2.2.0")
+//    implementation("com.github.skydoves:cloudy:0.1.2")
 }

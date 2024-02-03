@@ -34,6 +34,8 @@ val aether_light_surface = Color(0xFFFBFCFD)
 val aether_light_surfaceDim = Color(0xFFE4EAF0)
 val aether_light_surfaceBright = Color(0xFFF9FAFD)
 val aether_light_onSurface = Color(0xFF1B1E20)
+val aether_light_surfaceVariant = Color(0xFFE4E9EE)
+val aether_light_onSurfaceVariant = Color(0xFF272B2E)
 
 val aether_light_inversePrimary = Color(0xFF83B6DF)
 val aether_light_inverseSurface = Color(0xFF2C3132)
