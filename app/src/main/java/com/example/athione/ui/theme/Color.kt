@@ -6,10 +6,6 @@ val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
-
 val aether_light_primary = Color(0xFF3A86C3)
 val aether_light_onPrimary = Color(0xFFEBF2FB)
 val aether_light_primaryContainer = Color(0xFFB5D8F4)
