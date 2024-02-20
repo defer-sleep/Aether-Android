@@ -36,11 +36,11 @@ data class AeroColors(
 
 val AeroLightColorScheme = AeroColors(
 //    aeroSurface = Color(0x20F5F5F5),
-    aeroSurface = Color(0x40000000),
-    onAeroSurface = Color(0xFFFCFCFC),
-    aeroSurfaceVariant = Color(0x20EBEBEB),
-    onAeroSurfaceVariant = Color(0xFFE9E9E9),
-    aeroOutline = Color(0xFFFCFCFC),
+    aeroSurface = Color(0x50FFFFFF),
+    onAeroSurface = Color(0xFF202020),
+    aeroSurfaceVariant = Color(0x80EBEBEB),
+    onAeroSurfaceVariant = Color(0xFF404040),
+    aeroOutline = Color(0xFF303030),
 )
 
 val LocalAeroColors = staticCompositionLocalOf { AeroColors() }

@@ -70,9 +70,10 @@ fun LoginPage(modifier: Modifier = Modifier)
                 //.background(Color(0xFF459ADD)),
                 .background(
                     brush = Brush.verticalGradient(
-                        listOf(Color(0xFF4E97D1), Color(0xFF7BADD1))
+                        listOf(Color(0xFF71C8F1), Color(0xFF97D2EE))
                     )
                 ),
+
             contentAlignment = Alignment.Center
         ) {
             Image(
@@ -80,7 +81,7 @@ fun LoginPage(modifier: Modifier = Modifier)
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxSize(),
-                alpha = 0.3f
+                alpha = 0.5f
             )
             AeroSurface(
                 modifier = Modifier
